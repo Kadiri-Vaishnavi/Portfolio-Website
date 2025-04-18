@@ -15,7 +15,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-image:background-image: url('https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/blue%20background.jpg');
+  /* Corrected the double 'background-image' and ensured proper syntax */
+  background-image: url('https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/blue%20background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
