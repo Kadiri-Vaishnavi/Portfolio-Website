@@ -133,9 +133,10 @@ nav a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.85); /* Transparent overlay for readability */
+  background: rgba(173, 216, 230, 0.85); /* light blue */
   z-index: -1;
 }
+
 
 .section:hover {
   transform: scale(1.02);
