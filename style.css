@@ -113,6 +113,7 @@ nav a:hover {
 
 /* Section Styling */
 .section {
+  position: relative; /* Ensure that the image and overlay are stacked correctly */
   background-image: url('https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/blue%20background.jpg');
   background-size: cover;
   background-position: center;
@@ -124,6 +125,19 @@ nav a:hover {
   max-width: 1100px;
   transition: transform 0.3s ease;
   color: #fff; /* Set text color to white for better visibility on the image */
+}
+
+/* Overlay on Section to improve text visibility */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  border-radius: 16px; /* Match section border-radius */
+  z-index: -1; /* Ensure it sits behind the text */
 }
 
 .section:hover {
@@ -149,7 +163,6 @@ ul {
   margin-left: 1.5rem;
   margin-top: 1rem;
 }
-
 
 /* Footer Styling */
 footer {
