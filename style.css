@@ -12,10 +12,10 @@
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
   margin: 0;
   padding: 0;
-  /* Corrected the double 'background-image' and ensured proper syntax */
   background-image: url('https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/blue%20background.jpg');
   background-size: cover;
   background-position: center;
@@ -23,7 +23,6 @@ body {
   background-attachment: fixed;
   font-family: 'Poppins', sans-serif;
 }
-
 
 @keyframes gradientBG {
   0% {
@@ -36,7 +35,6 @@ body {
     background-position: 0% 50%;
   }
 }
-
 
 body::before {
   content: "";
@@ -71,6 +69,7 @@ body::after {
   }
 }
 
+/* Header Styling */
 header {
   background-color: var(--section-bg);
   padding: 1rem 2rem;
@@ -112,6 +111,7 @@ nav a:hover {
   color: var(--accent-color);
 }
 
+/* Section Styling */
 .section {
   background-color: rgba(255, 255, 255, 0.9);
   margin: 40px auto;
@@ -125,7 +125,6 @@ nav a:hover {
 .section:hover {
   transform: scale(1.02);
 }
-
 
 .section.visible {
   opacity: 1;
@@ -147,6 +146,7 @@ ul {
   margin-top: 1rem;
 }
 
+/* Footer Styling */
 footer {
   text-align: center;
   padding: 2rem;
@@ -156,6 +156,7 @@ footer {
   margin-top: 2rem;
 }
 
+/* Skills Grid */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -188,16 +189,16 @@ footer {
   color: var(--text-color);
 }
 
+/* About Photo */
 .about-photo {
   display: block;
-  width: 200px; /* reduced from 75px */
-  height: 250px; /* reduced from 90px */
+  width: 200px;
+  height: 250px;
   object-fit: cover;
   border-radius: 8px;
   margin: 0 auto 1rem auto;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
 
 @keyframes popIn {
   from {
@@ -210,14 +211,14 @@ footer {
   }
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
     padding-top: 1rem;
   }
+
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 }
-
-
