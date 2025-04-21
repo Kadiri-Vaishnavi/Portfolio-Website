@@ -113,7 +113,9 @@ nav a:hover {
 
 /* Section Styling */
 .section {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-image: url('https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/blue%20background.jpg');
+  background-size: cover;
+  background-position: center;
   margin: 40px auto;
   padding: 40px;
   border-radius: 16px;
