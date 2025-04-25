@@ -32,6 +32,7 @@ Portfolio-Website/ ├── images/ # Images used in the website ├── styl
 ---
 
 ## 🤝 Contributing
+
 Contributions are welcome! Feel free to fork the repository and submit a pull request if you'd like to add new features or improve the design.
 
 ---
