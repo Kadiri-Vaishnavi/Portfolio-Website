@@ -31,13 +31,8 @@ Portfolio-Website/ ├── images/ # Images used in the website ├── styl
 
 ---
 
-## 📸 Screenshots
-
-![Home Page](images/screenshot-home.png)  
-*Home Page with animated intro and navigation*
-
-![Projects](images/screenshot-projects.png)  
-*Projects section with detailed cards*
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork the repository and submit a pull request if you'd like to add new features or improve the design.
 
 ---
 
