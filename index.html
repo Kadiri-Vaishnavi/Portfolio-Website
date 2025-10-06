@@ -5,262 +5,351 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kadiri Vaishnavi | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Global Styles ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      --bg: #fff;
+      --text: #333;
+      --primary: #007bff;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      --bg: #0d1117;
+      --text: #f0f0f0;
+      --primary: #1f6feb;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    nav h1 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    section {
+      padding: 80px 60px;
+      min-height: 100vh;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 90vh;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: var(--text);
+    }
+
+    .typed-text {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* ---------- About Section ---------- */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image img {
+      width: 250px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .about-text {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* ---------- Projects Section ---------- */
+    .project-card {
+      background: var(--bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    /* ---------- Back to Top Button ---------- */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 16px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    #backToTop:hover {
+      opacity: 0.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--bg);
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <nav>
       <h1>Kadiri Vaishnavi</h1>
       <ul>
+        <li><a href="#hero" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#resume">Resume</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#more">More</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="theme-toggle" id="themeToggle">🌙</div>
     </nav>
-    
   </header>
 
-  <main>
-    <section id="about" class="section about-section">
-        <div class="about-container">
-          <div class="about-image">
-            <img src="vaishnavi.jpg" alt="Kadiri Vaishnavi" class="about-photo" />
-        </div>
-          <div class="about-text">
-            <h2>About Me</h2>
-            <p>
-              Hi, I’m <strong>Kadiri Vaishnavi</strong>, a passionate Computer Science undergraduate from Lovely Professional University, Phagwara. My interests lie in:
-            </p>
-            <ul>
-              <li>Data Analytics</li>
-              <li>Artificial Intelligence</li>
-            </ul>
-            <p>
-              I'm dedicated to uncovering insights and driving data-informed decisions by analyzing complex datasets and building scalable data solutions. With a strong foundation in statistical analysis, data visualization, and database management, I continuously strive to enhance my skills in emerging data technologies to stay at the forefront of analytics and decision science.            </p>
-          </div>
-        </div>
-      </section>
-      
-      
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <ul style="list-style-type: none; padding: 0;">
-          <li style="margin-bottom: 40px;">
-            <strong>Customer Segmentation for a Retail Store (Feb 2024 - May 2024)</strong><br />
-            Clustered customers into distinct segments based on purchasing behavior using K-Means clustering in R.<br />
-            Identified key customer trends that improved targeted marketing strategies, increasing revenue potential by 20%.<br />
-            Generated interactive data visualizations, enabling business stakeholders to interpret market segmentation insights effectively.
-      
-            <!-- Image for Customer Segmentation Project -->
-            <div style="margin-top: 15px;">
-              <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/rproject.jpg" 
-                   alt="Customer Segmentation Project"
-                   style="width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);" />
-            </div>
-          </li>
-      
-          <li>
-            <strong>Sales Dashboard & Market Analysis (Nov 2023 - Dec 2023)</strong><br />
-            Analyzed Coca-Cola's sales data, identifying key KPIs and revenue trends over time.<br />
-            Built an interactive dashboard using pivot tables, slicers, and charts, providing insights into consumer preferences and market share.<br />
-            Summarized all the charts to make an enhanced dashboard with better insights imposed.
-      
-            <!-- Image for Sales Dashboard Project -->
-            <div style="margin-top: 15px;">
-              <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/CocaCola_Sales_Dashboard.jpg" 
-                   alt="Coca-Cola Dashboard"
-                   style="width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);" />
-            </div>
-          </li>
-        </ul>
-      </section>
-      
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <h1>Hello, I'm <span class="typed-text"></span></h1>
+    <p>Data Analyst | AI Enthusiast | Problem Solver</p>
+  </section>
 
-    <section id="resume" class="section">
-      <h2>Resume</h2>
-    
-      <!-- Resume Image -->
-      <div class="resume-image">
-        <img src="Optimized_Resume_Kadiri_Vaishnavi_page-0001.jpg" alt="Resume of Kadiri Vaishnavi" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <div class="about-image">
+        <img src="vaishnavi.jpg" alt="Kadiri Vaishnavi" />
       </div>
-    
-      <!-- Download Button -->
-      <div class="resume-download" style="margin-top: 20px; text-align: center;">
-        <a href="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/Optimized_Resume_Kadiri_Vaishnavi_page-0001.jpg" download="Kadiri_Vaishnavi_Resume.png" style="padding: 10px 20px; background-color: #007BFF; color: #fff; border-radius: 6px; text-decoration: none; font-weight: bold;">
-          Download Resume
-        </a>
+      <div class="about-text">
+        <p>Hi, I’m <strong>Kadiri Vaishnavi</strong>, a passionate Computer Science undergraduate from Lovely Professional University, Phagwara.</p>
+        <p>My interests lie in <b>Data Analytics</b> and <b>Artificial Intelligence</b>. I love uncovering insights and building scalable solutions.</p>
       </div>
-    </section>
-    
-    
-
-    <section id="skills" class="section">
-      <h2>Programming Languages</h2>
-    
-      <div class="skill-carousel" style="
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 10px;
-      scrollbar-width: thin;
-      scrollbar-color: #888 transparent;
-    ">
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/python.jpg" alt="Python" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/java.png" alt="Java" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/sql.png" alt="SQL" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/excel.png" alt="Excel" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/html.png" alt="HTML" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/css.png" alt="CSS" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/r.jpg" alt="R" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/informatica.png" alt="Informatica" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/git.png" alt="Gitbash" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-        <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/tab.png" alt="Tableau" style="width: 180px; height: 150px; border-radius: 50%; object-fit: cover;" />
-
-
-
-      </div>
-    </section>
-    
-
-    <section id="certifications" class="section">
-      <h2 style="text-align: center; margin-bottom: 2rem;">Certifications</h2>
-    
-      <div style="
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 40px;
-        justify-items: center;
-        padding: 0 20px;
-      ">
-        <!-- Certificate 1 -->
-        <div style="text-align: center;">
-          <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/NPTEL.jpg" alt="Cloud Computing – NPTEL"
-            style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);" />
-          <p style="margin-top: 10px; font-weight: bold;">Cloud Computing – NPTEL</p>
-        </div>
-    
-        <!-- Certificate 2 -->
-        <div style="text-align: center;">
-          <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/tableaucer.jpg" alt="Data Analysis with Tableau – Coursera"
-            style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);" />
-          <p style="margin-top: 10px; font-weight: bold;">Data Analysis with Tableau – Coursera</p>
-        </div>
-    
-        <!-- Certificate 3 -->
-        <div style="text-align: center;">
-          <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/board.jpg" alt="Core and Advance Java – Coding Spoon"
-            style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);" />
-          <p style="margin-top: 10px; font-weight: bold;">Core and Advance Java – Board Infinity</p>
-        </div>
-    
-        <!-- Certificate 4 -->
-        <div style="text-align: center;">
-          <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/rcer.jpg" alt="R Programming – Coursera"
-            style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);" />
-          <p style="margin-top: 10px; font-weight: bold;">R Programming – Coursera</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section id="more" class="section">
-      <h2 style="text-align: center;">More</h2>
-    
-      <div style="display: flex; flex-direction: column; gap: 40px; padding: 20px;">
-    
-       <!-- Experience Section -->
-<div>
-  <h3>Experience</h3>
-
-  <div style="margin-bottom: 30px;">
-    <strong>Board Infinity | GitHub</strong><br />
-    <em>Core and Advance Java | Java, SQL, HTML</em><br />
-    <span>May 2024 – Jul 2024</span>
-    <ul style="margin-top: 10px;">
-      <li>Developed a data-driven user authentication system integrating Java, HTML, and SQL.</li>
-      <li>Customized sign-in and sign-up pages that verify and store user details accordingly.</li>
-      <li>Optimized database performance by designing structured queries in SQL Workbench, improving data retrieval speed by 30%.</li>
-      <li>Implemented a sign-in/sign-up system with validation logic, overcoming challenges in data consistency and user authentication.</li>
-      <li>Connected to the database with SQL using SQL Workbench.</li>
-    </ul>
-  
-    <!-- Experience Image -->
-    <div style="margin-top: 15px;">
-      <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/boardimg.jpg"
-           alt="Java Authentication System"
-           style="width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);" />
     </div>
-  </div>
-  
+  </section>
 
-        <!-- Extracurricular Activities Section -->
-<div>
-  <h3>Extracurricular Activities</h3>
-
-  <li style="margin-top: 15px;">
-    <strong>Secured District Level 3rd Rank</strong> – General Knowledge Competition  Jan 2019<br />
-    <span>Participated and ranked 3rd in district-level general knowledge contest.</span>
-  </li>
-
-  <ul style="margin-top: 10px;">
-    <li>
-      <strong>Acted as a Class Representative</strong> – LPU    Aug 2023<br />
-
-      <span>Had been responsible for acting as the link between faculty and students.</span>
-        <!-- CR Certificate Image -->
-  <div style="margin-top: 25px; text-align: center;">
-    <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/CR certificate KadiriVaishnavi.jpeg" alt="Class Representative Certificate"
-      style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);" />
-    <p style="margin-top: 8px; font-weight: bold;">Class Representative – Certificate</p>
-  </div>
-</div>
-
-
-    </li>
-
-
-
-  <li style="margin-top: 15px;">
-    <strong>Member and OB Head</strong> – Inventix Club  Sep 2023 - Till <br />
-    <span>Conducted 4–5 successful tech and non-tech events in the club. Events like SIH, Tech - Sprint, Valorant and many more.</span>
-  
-    <!-- Inventix Event Images -->
-    <div style="margin-top: 10px; display: flex; gap: 20px; flex-wrap: wrap;">
-      <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/inventix.jpg" alt="Inventix Event 1"
-           style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-      
-      <img src="https://raw.githubusercontent.com/Kadiri-Vaishnavi/Portfolio-Website/main/inventix1.jpg" alt="Inventix Event 2"
-           style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Customer Segmentation for a Retail Store</h3>
+      <p>Clustered customers using K-Means in R to improve marketing strategies.</p>
+      <img src="rproject.jpg" alt="Retail Project" />
     </div>
-  </li>
-  
 
+    <div class="project-card">
+      <h3>Sales Dashboard & Market Analysis</h3>
+      <p>Built a Coca-Cola Sales Dashboard using Excel to analyze KPIs and revenue trends.</p>
+      <img src="CocaCola_Sales_Dashboard.jpg" alt="Sales Dashboard" />
+    </div>
+  </section>
 
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="about-container">
+      <p>Python | Java | SQL | R | HTML | CSS | Excel | Tableau | Git | Informatica</p>
+    </div>
+  </section>
 
-    
-      </div>
-    </section>
-    
+  <!-- Certifications -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <p style="text-align:center;">NPTEL | Coursera | Board Infinity | Tableau</p>
+  </section>
 
-    
+  <!-- More -->
+  <section id="more">
+    <h2>Experience & Activities</h2>
+    <p style="text-align:center;">Board Infinity – Java Project | Inventix Club OB Head | LPU CR</p>
+  </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:ammuk.v259@gmail.com">ammuk.v259@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/vaishnavi-kadiri2" target="_blank">vaishnavi-kadiri2</a></p>
-      <p>GitHub: <a href="https://github.com/Kadiri-Vaishnavi" target="_blank">Kadiri-Vaishnavi</a></p>
-    </section>
-  </main>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align:center;">
+      📧 <a href="mailto:ammuk.v259@gmail.com">ammuk.v259@gmail.com</a><br>
+      💼 <a href="https://linkedin.com/in/vaishnavi-kadiri2" target="_blank">LinkedIn</a><br>
+      💻 <a href="https://github.com/Kadiri-Vaishnavi" target="_blank">GitHub</a>
+    </p>
+  </section>
 
   <footer>
     <p>&copy; 2025 Kadiri Vaishnavi</p>
   </footer>
 
-  <script src="script.js"></script>
+  <button id="backToTop">↑</button>
+
+  <script>
+    // ---------- Typing Animation ----------
+    const typedText = document.querySelector(".typed-text");
+    const words = ["Kadiri Vaishnavi", "a Data Analyst", "an AI Enthusiast"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let typing = true;
+
+    function typeEffect() {
+      const word = words[wordIndex];
+      if (typing) {
+        typedText.textContent = word.substring(0, charIndex++);
+        if (charIndex > word.length) {
+          typing = false;
+          setTimeout(typeEffect, 1000);
+          return;
+        }
+      } else {
+        typedText.textContent = word.substring(0, charIndex--);
+        if (charIndex === 0) {
+          typing = true;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+      setTimeout(typeEffect, typing ? 100 : 50);
+    }
+    typeEffect();
+
+    // ---------- Scroll Reveal ----------
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
+
+    // ---------- Active Nav Highlight ----------
+    const navLinks = document.querySelectorAll("nav a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 100;
+        if (scrollY >= top) current = sec.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.remove("active");
+        if (a.getAttribute("href") === "#" + current) a.classList.add("active");
+      });
+    });
+
+    // ---------- Back To Top ----------
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) backToTop.style.display = "block";
+      else backToTop.style.display = "none";
+    });
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // ---------- Dark Mode Toggle ----------
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+  </script>
 </body>
 </html>
